@@ -1,0 +1,43 @@
+#!/bin/sh
+
+#
+#    brnctl
+#    LCD brightness control.
+#
+#    File: brnctl
+#
+#    Copyright (C) 2012 Artem Petrov <pa2311@gmail.com>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#    GNU General Public License for more details.
+#    You should have received a copy of the GNU General Public License
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+
+#
+# It's created and tested in ArchLinux on SonyVaioVPCF12V1R/H
+#
+
+echo " "
+echo "brnctl v1.0.0"
+echo "LCD brightness control."
+echo " "
+
+echo "Maximum brightness for your laptop: "
+cat  "/sys/class/backlight/acpi_video0/max_brightness"
+echo "Current brightness: "
+cat  "/sys/class/backlight/acpi_video0/brightness"
+echo " "
+
+echo "Enter new value of brightness: "
+read brightness
+
+echo $brightness > "/sys/class/backlight/acpi_video0/brightness"
+echo " "
+

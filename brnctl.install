@@ -1,0 +1,7 @@
+post_install() {
+    echo "    Information about using brnctl - see /usr/share/brnctl/doc/README file."
+}
+
+post_upgrade() {
+    post_install
+}
